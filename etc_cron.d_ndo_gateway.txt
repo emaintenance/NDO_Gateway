@@ -1,0 +1,3 @@
+MAILTO=""
+
+*/10 * * * * root /usr/local/scripts/NDO_Gateway.sh >> /usr/local/scripts/NDO_Gateway.log 2>&1
