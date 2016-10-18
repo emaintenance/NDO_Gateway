@@ -5,6 +5,7 @@
 
 # login information
 . /etc/db_info.conf
+
 #centreon_status=centreon_status
 #centreon_storage=centreon_storage
 centreon=centreon
@@ -115,6 +116,9 @@ ${centreon_storage}.services.last_state_change = UNIX_TIMESTAMP(${centreon_statu
 ${centreon_storage}.services.enabled = 1
 where UNIX_TIMESTAMP(${centreon_status}.nagios_servicestatus.last_check) > ${online}; "
 
+
+[ "$1" == "attend" ] || exit 0
+online=$(date +%s --date "1 min ago")
 
 ####################
 # UPDATE COMMENT
